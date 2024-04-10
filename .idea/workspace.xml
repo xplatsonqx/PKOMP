@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a1a0195-fa5c-40b2-ac75-46c6b65bdbcb" name="Changes" comment="first_commitsa">
+    <list default="true" id="9a1a0195-fa5c-40b2-ac75-46c6b65bdbcb" name="Changes" comment="connection to mssql server established">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -43,7 +43,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "random__data__insert",
-    "last_opened_file_path": "C:/Users/Stacjonarny/PycharmProjects/PKO_MP",
+    "last_opened_file_path": "C:/Users/Stacjonarny/PycharmProjects/SQL_Training",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
@@ -95,11 +95,20 @@
       <option name="project" value="LOCAL" />
       <updated>1712744793499</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="connection to mssql server established">
+      <option name="closed" value="true" />
+      <created>1712755114570</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1712755114570</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first_commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first_commit" />
+    <MESSAGE value="connection to mssql server established" />
+    <option name="LAST_COMMIT_MESSAGE" value="connection to mssql server established" />
   </component>
 </project>
