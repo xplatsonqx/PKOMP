@@ -1,5 +1,5 @@
 import random
-
+import names
 import pyodbc
 
 server = 'DESKTOP-2DB5AH1\\MSSQLSERVER01'
@@ -16,33 +16,49 @@ cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};\
 cursor = cnxn.cursor()
 
 
-
-# List of names
-names = ["James", "John", "Robert", "Michael", "William", "David", "Richard", "Joseph", "Charles", "Thomas",
-    "Mary", "Patricia", "Jennifer", "Linda", "Elizabeth", "Barbara", "Susan", "Jessica", "Sarah", "Karen"]
-
-surnames = [
-    "Smith", "Johnson", "Williams", "Jones", "Brown", "Davis", "Miller", "Wilson", "Moore", "Taylor",
-    "Anderson", "Thomas", "Jackson", "White", "Harris", "Martin", "Thompson", "Garcia", "Martinez", "Robinson"
-]
-
-for i in range(1, 1000):
-    UserID = i
-    LastName = random.choice(surnames)
-    FirstName = random.choice(names)
-    query = f"INSERT INTO Users (UserID, LastName, FirstName) VALUES ({UserID}, '{LastName}', '{FirstName}')"
-    cursor.execute(query)
+def add_random_users_to_db(number_of_iteration):
+    for i in range(1, number_of_iteration + 1):
+        LastName = names.get_last_name()
+        FirstName = names.get_first_name()
+        query = (f"INSERT INTO Users (LastName, FirstName) VALUES ('{LastName}','{FirstName}')")
+        cursor.execute(query)
     cursor.commit()
 
-query = "SELECT * FROM Users"
-cursor.execute(query)
-rows = cursor.fetchall()
-for row in rows:
-    print(row)
 
-# query = "DELETE FROM Users WHERE 1=1"
-# cursor.execute(query)
-# cursor.commit()
+def show_all_users():
+    query = "SELECT * FROM Users"
+    cursor.execute(query)
+    rows = cursor.fetchall()
+    for row in rows:
+        print(row)
 
 
-cursor.close()
+def delete_all_users():
+    query = "DELETE FROM Users WHERE 1=1"
+    cursor.execute(query)
+    cursor.commit()
+    # query = "ALTER TABLE Users AUTO_INCREMENT = 1;"
+    # cursor.execute(query)
+    # cursor.commit()
+
+
+while True:
+    print(f"Hello Mr Mateusz. What do you want to do with this app?\n")
+    print(f"a Show all users\n")
+    print(f"b Delete all users\n")
+    print(f"c Add users\n")
+    print(f"d Exit app\n")
+    # print("\n")
+
+    choice = input("Type letter: ")
+    print("\n")
+    if choice == 'a':
+        show_all_users()
+    if choice == 'b':
+        delete_all_users()
+    if choice == 'c':
+        how_many = int(input("How many: "))
+        add_random_users_to_db(how_many)
+        print("\n")
+    if choice == 'd':
+        break
